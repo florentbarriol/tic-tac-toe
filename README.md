@@ -1,6 +1,8 @@
 # Ti Tac Toe Game
 
-Made with the power 'creat-react-app' (Webpack + ReactJs) and Redux, Lodash...
+A simple tic tac toe game with Webpack, ReactJs, Redux and Lodash.
+
+> Made with the power 'creat-react-app' (Webpack + ReactJs) and Redux, Lodash...
 
 ## TODOS
  * add the winnng phase
