@@ -9,5 +9,7 @@ function makeActionCreator(type, ...argNames) {
 }
 
 export const ADD_TIC = 'ADD_TIC';
+export const RESET_GAME = 'RESET_GAME';
 
 export const addTic = makeActionCreator(ADD_TIC, 'id');
+export const resetGame = makeActionCreator(RESET_GAME);
