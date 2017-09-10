@@ -5,10 +5,10 @@ A simple tic tac toe game with Webpack, ReactJs, Redux and Lodash.
 > Made with the power 'creat-react-app' (Webpack + ReactJs) and Redux, Lodash...
 
 ## TODOS
- * add the winnng phase
- * add a reset button game
- * add the possibility to player to choose his name and his symbole
- * add the possiblity to chose size of game
+ * player choose his name and his symbole
+ * choose size of game
+ * show the score
+ * style with bootstrap or similar
 
 
 

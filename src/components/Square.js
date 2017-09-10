@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { addTic } from '../actions';
 
-import styles from '../css/Square.css';
+import styles from '../css/components/Square.css';
 
 class Square extends Component {
 

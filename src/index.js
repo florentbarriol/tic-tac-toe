@@ -5,7 +5,7 @@ import 'knacss/css/knacss.css';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore } from 'redux';
-import { reducer } from './reducer';
+import reducer from './reducer';
 
 let store = createStore(reducer);
 

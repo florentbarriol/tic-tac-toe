@@ -9,9 +9,9 @@ class App extends Component {
         return (
             <div className={styles.App}>
                 <h1 className={styles.AppIntro}>Play the game</h1>
-                <section className={styles.TheGame}>
+                <div className={styles.Container}>
                     <Matrix />
-                </section>
+                </div>
             </div>
         );
     }
