@@ -1,4 +1,4 @@
-import { ADD_TIC, RESET_GAME } from './actionTypes';
+import { ADD_TIC, RESET_GAME, CONTINUE_GAME } from './actionTypes';
 
 function makeActionCreator(type, ...argNames) {
     return function (...args) {
@@ -12,3 +12,4 @@ function makeActionCreator(type, ...argNames) {
 
 export const addTic = makeActionCreator(ADD_TIC, 'id');
 export const resetGame = makeActionCreator(RESET_GAME);
+export const continueGame = makeActionCreator(CONTINUE_GAME);

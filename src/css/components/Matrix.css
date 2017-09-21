@@ -1,8 +1,12 @@
-.GridContainer {
+.grid-container {
     position: relative;
 }
+.grid {
+    display:flex;
+    flex-wrap:wrap;
+}
 
-.GridContainer .Overlay {
+.grid-container .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -11,7 +15,7 @@
     margin: auto;
     display: none;
 }
-.GridContainer .Overlay.OverlayActive {
+.grid-container .overlay.overlay-active {
     opacity: 1;
     display:block;
     background: rgba(0,0,0,.2);

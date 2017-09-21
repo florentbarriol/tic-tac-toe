@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { addTic } from '../actions';
 
-import styles from '../css/components/Square.css';
+import '../css/components/Square.css';
 
 class Square extends Component {
 
@@ -15,9 +15,9 @@ class Square extends Component {
 
 
     render() {
-        const { display, isChecked } = this.props;
+        const { display, isChecked, width } = this.props;
         return (
-            <div className={`${styles.square} flex-container-v`} onClick={this._onClick.bind(this)}>
+            <div className="square" style={{ width: `${width}%` }} onClick={this._onClick.bind(this)}>
                 {isChecked && (
                     display
                 )}

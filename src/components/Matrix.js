@@ -6,7 +6,9 @@ import { resetGame } from '../actions';
 import DrawScreen from './DrawScreen';
 import WinningScreen from './WinningScreen';
 
-import styles from '../css/components/Matrix.css';
+import * as utils from '../utils';
+
+import '../css/components/Matrix.css';
 
 class Matrix extends Component {
 
@@ -15,7 +17,7 @@ class Matrix extends Component {
     }
 
     render() {
-        const { matrix, matrixSize, winner, currentPlayer } = this.props;
+        const { matrix, matrixSize, winner } = this.props;
         const nbTic = _.values(matrix).reduce((res, curr) => { return curr.id ? res + 1 : res }, 0);
         let retour;
         if (nbTic === matrixSize) {
@@ -23,9 +25,9 @@ class Matrix extends Component {
         } else {
             retour =
                 <section>
-                    <h2>It's your turn {currentPlayer.name} {currentPlayer.piece}</h2>
-                    <div className={styles.GridContainer}>
-                        <div className="grid-3">
+
+                    <div className="grid-container">
+                        <div className="grid">
                             {_.keys(matrix).map((key, i) => {
                                 const el = matrix[key];
                                 return <Square
@@ -33,14 +35,16 @@ class Matrix extends Component {
                                     id={key}
                                     isChecked={!_.isEmpty(el)}
                                     display={el && el.piece ? el.piece : ''}
+                                    width={100 / utils.rowNumber(matrixSize)}
                                 />
                             })}
                         </div>
                         <div
-                            className={`${styles.Overlay} ${!_.isEmpty(winner) ? styles.OverlayActive : ''}`}>
+                            className={`overlay ${!_.isEmpty(winner) ? 'overlay-active' : ''}`}>
                             <WinningScreen winner={winner} />
                         </div>
                     </div>
+
                 </section>;
         }
         return retour;

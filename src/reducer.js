@@ -1,4 +1,4 @@
-import { ADD_TIC, RESET_GAME } from './actionTypes';
+import { ADD_TIC, RESET_GAME, CONTINUE_GAME } from './actionTypes';
 import _ from 'lodash';
 import * as utils from './utils';
 import { Player } from './Player';
@@ -16,7 +16,7 @@ const initialState = {
     winner: {}
 }
 
-export default function reducer(state = initialState, action) {
+export default function reducer(state = _.clone(initialState), action) {
     switch (action.type) {
         case ADD_TIC:
             const newMatrix = _.merge(
@@ -24,12 +24,21 @@ export default function reducer(state = initialState, action) {
                 state.matrix,
                 { [action.id]: state.players[state.currentPlayer.id] }
             );
+            const winner = findAWinner(newMatrix);
+            let playerWinner = {};
+            // on ajoute un point au joueur gagnant
+            if (!_.isEmpty(winner)) {
+                winner.winATurn();
+            }
             return _.merge({}, state, {
                 matrix: newMatrix,
                 currentPlayer: state.currentPlayer.id === 1 ? state.players[2] : state.players[1],
-                winner: findAWinner(newMatrix)
+                winner: winner,
+                players: _.merge({}, state.players, playerWinner)
             });
         case RESET_GAME:
+            return _.clone(initialState);
+        case CONTINUE_GAME:
             let newState = _.merge({}, state, {
                 currentPlayer: state.players[1],
                 winner: {}

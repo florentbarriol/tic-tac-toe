@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { resetGame } from '../actions';
+import { continueGame } from '../actions';
 import { Button } from 'react-bootstrap';
 
-class RetryButton extends Component {
+class ContinueButton extends Component {
 
-    retry(e) {
-        this.props.dispatch(resetGame());
+    continue(e) {
+        this.props.dispatch(continueGame());
     }
 
     render() {
         const { text } = this.props;
         return (
             <Button
-                bsStyle="warning"
-                onClick={this.retry.bind(this)}
+                bsStyle="success"
+                onClick={this.continue.bind(this)}
             >
                 {text}
             </Button>
@@ -22,4 +22,4 @@ class RetryButton extends Component {
     }
 }
 
-export default connect()(RetryButton);
+export default connect()(ContinueButton);
