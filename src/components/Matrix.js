@@ -17,7 +17,8 @@ class Matrix extends Component {
     }
 
     render() {
-        const { matrix, matrixSize, winner } = this.props;
+        const { matrix, players, winner } = this.props;
+        const matrixSize = _.values(matrix).length;
         const nbTic = _.values(matrix).reduce((res, curr) => { return curr.id ? res + 1 : res }, 0);
         let retour;
         if (nbTic === matrixSize) {
@@ -25,23 +26,23 @@ class Matrix extends Component {
         } else {
             retour =
                 <section>
-
                     <div className="grid-container">
                         <div className="grid">
                             {_.keys(matrix).map((key, i) => {
-                                const el = matrix[key];
+                                const idPlayer = matrix[key] ? matrix[key] : -1;
+                                const currentPlayer = players[idPlayer];
                                 return <Square
                                     key={i}
                                     id={key}
-                                    isChecked={!_.isEmpty(el)}
-                                    display={el && el.piece ? el.piece : ''}
+                                    isChecked={idPlayer > 0}
+                                    display={idPlayer > 0 ? currentPlayer.piece : ''}
                                     width={100 / utils.rowNumber(matrixSize)}
                                 />
                             })}
                         </div>
                         <div
-                            className={`overlay ${!_.isEmpty(winner) ? 'overlay-active' : ''}`}>
-                            <WinningScreen winner={winner} />
+                            className={`overlay ${winner > 0 ? 'overlay-active' : ''}`}>
+                            <WinningScreen winner={_.toPlainObject(players[winner])} />
                         </div>
                     </div>
 
@@ -54,9 +55,9 @@ class Matrix extends Component {
 function mapStateToProps(state) {
     return {
         matrix: state.matrix,
-        matrixSize: state.matrixSize,
-        currentPlayer: state.currentPlayer,
-        winner: state.winner
+        idCurrentPlayer: state.idCurrentPlayer,
+        winner: state.winner,
+        players: state.players
     }
 }
 

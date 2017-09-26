@@ -29,7 +29,8 @@ class Square extends Component {
 Square.propTypes = {
     id: PropTypes.string.isRequired,
     isChecked: PropTypes.bool,
-    display: PropTypes.string.isRequired
+    display: PropTypes.string.isRequired,
+    width: PropTypes.number.isRequired
 
 }
 

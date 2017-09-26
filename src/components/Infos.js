@@ -5,7 +5,8 @@ import _ from 'lodash';
 class Infos extends Component {
 
     render() {
-        const { currentPlayer, players } = this.props;
+        const { players, idCurrentPlayer } = this.props;
+        const currentPlayer = players[idCurrentPlayer];
         return (
             <div>
                 <div>

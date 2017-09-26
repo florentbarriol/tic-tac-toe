@@ -10,7 +10,7 @@ import '../css/styles.css';
 class App extends Component {
 
     render() {
-        const { currentPlayer, players } = this.props;
+        const { idCurrentPlayer, players } = this.props;
         return (
             <main>
                 <Header />
@@ -26,7 +26,7 @@ class App extends Component {
                         </Col>
                         <Col md={2}>
                             <Infos
-                                currentPlayer={currentPlayer}
+                                idCurrentPlayer={idCurrentPlayer}
                                 players={players} />
                         </Col>
                     </Row>
@@ -37,7 +37,7 @@ class App extends Component {
 }
 function mapStateToProps(state) {
     return {
-        currentPlayer: state.currentPlayer,
+        idCurrentPlayer: state.idCurrentPlayer,
         winner: state.winner,
         players: state.players
     }
