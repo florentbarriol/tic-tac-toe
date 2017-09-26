@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Matrix from './Matrix';
 import Header from './Header';
+import Footer from './Footer';
 import Infos from './Infos';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, PageHeader } from 'react-bootstrap';
 
 import '../css/styles.css';
 
@@ -17,7 +18,7 @@ class App extends Component {
                 <Grid>
                     <Row>
                         <Col md={12}>
-                            <h1>Play the game</h1>
+                            <PageHeader>Welcome to the tic tact toe game, play the game</PageHeader>
                         </Col>
                     </Row>
                     <Row>
@@ -31,6 +32,7 @@ class App extends Component {
                         </Col>
                     </Row>
                 </Grid>
+                <Footer />
             </main>
         );
     }

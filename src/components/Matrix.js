@@ -40,10 +40,7 @@ class Matrix extends Component {
                                 />
                             })}
                         </div>
-                        <div
-                            className={`overlay ${winner > 0 ? 'overlay-active' : ''}`}>
-                            <WinningScreen winner={_.toPlainObject(players[winner])} />
-                        </div>
+                        <WinningScreen show={winner > 0} winner={_.toPlainObject(players[winner])} />
                     </div>
 
                 </section>;

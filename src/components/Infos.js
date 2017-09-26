@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, ButtonToolbar } from 'react-bootstrap';
+import { Badge, ButtonToolbar, ListGroup, ListGroupItem, Glyphicon } from 'react-bootstrap';
+import RetryButton from './RetryButton';
 import _ from 'lodash';
 
 class Infos extends Component {
@@ -8,21 +9,21 @@ class Infos extends Component {
         const { players, idCurrentPlayer } = this.props;
         const currentPlayer = players[idCurrentPlayer];
         return (
-            <div>
-                <div>
-                    Current player: {currentPlayer.name} {currentPlayer.piece}
-                </div>
-                <div>
-                    <h3>Score :</h3>
+            <ListGroup>
+                <ListGroupItem header="Current player">
+                    {currentPlayer.name} {currentPlayer.piece}
+                </ListGroupItem>
+                <ListGroupItem hezader="Score">
                     {players && _.values(players).map((player) => {
-                        return <p key={player.id}>{player.name} : {player.score} points</p>;
+                        return <p key={player.id}>{player.name} <Badge>{player.score} point{player.score > 1 && 's'}</Badge></p>;
                     })}
-                </div>
-                <ButtonToolbar>
-                    <Button bsStyle="warning">Play a new game</Button>
-                    <Button bsStyle="danger">Stop the game</Button>
-                </ButtonToolbar>
-            </div>
+                </ListGroupItem>
+                            <ListGroupItem header="Actions">
+                                <ButtonToolbar>
+                                    <RetryButton />
+                                </ButtonToolbar>
+                            </ListGroupItem>
+            </ListGroup>
         );
     }
 }

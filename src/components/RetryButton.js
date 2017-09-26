@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { resetGame } from '../actions';
-import { Button } from 'react-bootstrap';
+import { Button, Glyphicon } from 'react-bootstrap';
 
 class RetryButton extends Component {
 
@@ -10,13 +10,12 @@ class RetryButton extends Component {
     }
 
     render() {
-        const { text } = this.props;
         return (
             <Button
                 bsStyle="warning"
                 onClick={this.retry.bind(this)}
             >
-                {text}
+            <Glyphicon glyph="repeat"/> Reset game
             </Button>
         );
     }

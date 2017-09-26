@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { continueGame } from '../actions';
-import { Button } from 'react-bootstrap';
+import { Button, Glyphicon } from 'react-bootstrap';
 
 class ContinueButton extends Component {
 
@@ -10,13 +10,12 @@ class ContinueButton extends Component {
     }
 
     render() {
-        const { text } = this.props;
         return (
             <Button
                 bsStyle="success"
                 onClick={this.continue.bind(this)}
             >
-                {text}
+                <Glyphicon glyph="play" /> Continue
             </Button>
         );
     }
