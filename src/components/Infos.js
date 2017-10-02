@@ -13,9 +13,9 @@ class Infos extends Component {
                 <ListGroupItem header="Current player">
                     {currentPlayer.name} {currentPlayer.piece}
                 </ListGroupItem>
-                <ListGroupItem hezader="Score">
+                <ListGroupItem header="Score">
                     {players && _.values(players).map((player) => {
-                        return <p key={player.id}>{player.name} <Badge>{player.score} point{player.score > 1 && 's'}</Badge></p>;
+                        return <span key={player.id}>{player.name} <Badge>{player.score} point{player.score > 1 && 's'}</Badge></span>;
                     })}
                 </ListGroupItem>
                             <ListGroupItem header="Actions">
