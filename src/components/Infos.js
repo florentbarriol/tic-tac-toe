@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Badge, ButtonToolbar, ListGroup, ListGroupItem, Glyphicon } from 'react-bootstrap';
+import { Badge, ButtonToolbar, ListGroup, ListGroupItem } from 'react-bootstrap';
 import RetryButton from './RetryButton';
 import _ from 'lodash';
 

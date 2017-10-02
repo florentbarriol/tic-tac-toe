@@ -18,7 +18,7 @@ class App extends Component {
                 <Grid>
                     <Row>
                         <Col md={12}>
-                            <PageHeader>Welcome to the tic tact toe game, play the game</PageHeader>
+                            <PageHeader>Welcome to the tic tac toe game, play the game</PageHeader>
                         </Col>
                     </Row>
                     <Row>
