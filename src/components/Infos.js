@@ -15,14 +15,14 @@ class Infos extends Component {
                 </ListGroupItem>
                 <ListGroupItem header="Score">
                     {players && _.values(players).map((player) => {
-                        return <span key={player.id}>{player.name} <Badge>{player.score} point{player.score > 1 && 's'}</Badge></span>;
+                        return <div key={player.id}>{player.name} <Badge>{player.score} point{player.score > 1 && 's'}</Badge></div>;
                     })}
                 </ListGroupItem>
-                            <ListGroupItem header="Actions">
-                                <ButtonToolbar>
-                                    <RetryButton />
-                                </ButtonToolbar>
-                            </ListGroupItem>
+                <ListGroupItem header="Actions">
+                    <ButtonToolbar>
+                        <RetryButton />
+                    </ButtonToolbar>
+                </ListGroupItem>
             </ListGroup>
         );
     }

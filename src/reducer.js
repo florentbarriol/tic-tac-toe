@@ -1,4 +1,4 @@
-import { ADD_TIC, RESET_GAME, CONTINUE_GAME } from './actionTypes';
+import { ADD_TIC, RESET_GAME, CONTINUE_GAME, ADD_PLAYER } from './actionTypes';
 import _ from 'lodash';
 import * as utils from './utils';
 import { Player } from './Player';
@@ -8,8 +8,8 @@ const MATRIX_SIZE = 9;
 const initialState = {
     idCurrentPlayer: 1,
     players: {
-        1: new Player(1, 'Michel', '🔵'),
-        2: new Player(2, 'Jean-Jacques', '❌')
+        /*1: new Player(1, 'Michel', '🔵'),
+        2: new Player(2, 'Jean-Jacques', '❌')*/
     },
     matrix: utils.initMatrix(MATRIX_SIZE),
     matrixSize: MATRIX_SIZE,
@@ -41,6 +41,11 @@ export default function reducer(state = _.cloneDeep(initialState), action) {
                 winner: -1
             });
             return _.set(newState, 'matrix', utils.initMatrix(MATRIX_SIZE));
+        case ADD_PLAYER:
+            const newId = _.isEmpty(_.values(state.players)) ? 1 : _.values(state.players).length + 1;
+            return _.merge({}, state, {
+                players: { [newId]: new Player(newId, action.player.name,action.player.piece) }
+            })
         default:
             return state;
     }
@@ -48,7 +53,7 @@ export default function reducer(state = _.cloneDeep(initialState), action) {
 
 function nextPlayerId({ idCurrentPlayer, players }) {
     const playersArray = _.values(players);
-    const nextIndex = _.findIndex(playersArray, o =>  o.id === idCurrentPlayer) + 1;
+    const nextIndex = _.findIndex(playersArray, o => o.id === idCurrentPlayer) + 1;
     return _.nth(playersArray, nextIndex < playersArray.length ? nextIndex : 0).id;
 }
 
